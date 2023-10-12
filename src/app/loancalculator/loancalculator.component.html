@@ -1,0 +1,79 @@
+<p>loancalculator works!</p>
+
+<!-- Loan Amount:<input type="number" [(ngModel)]="loanAmount" class="form-control"/><br />
+Tenure in Months:<input type="number" [(ngModel)]="tenure" class="form-control"/> <br />
+interest:<input type="number" [(ngModel)]="interest" class="form-control"/> <br>
+
+<button style="background:#3630a3;color:white;" 
+        (click)="cal()">      
+        <h2 style="text-align:center">Calculate EMI</h2></button> <br> <br>
+
+       <h1>EMI for Ur Entered Data :{{ emi }}/m</h1> -->
+
+
+       <section class="login-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 login-sec">
+				<h2 class="text-center">Calculate EMI</h2>
+				<form class="login-form" [formGroup]="loancal" (ngSubmit)="onSubmit()">
+					<div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">lOAN AMOUNT REQUIRED *</label>
+						<input type="text" [(ngModel)]="loanAmount" class="form-control" formControlName="loanAmount" placeholder="Enter the Loan Amount">
+					</div>
+                                        <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">TENURE IN MONTH *</label>
+						<input type="text" [(ngModel)]="tenure" class="form-control" formControlName="tenure" placeholder="Enter the Tenure in Month">
+					</div>
+                                        <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">INTEREST RATE *</label>
+						<input type="text" [(ngModel)]="interest" class="form-control" formControlName="interest" placeholder="Enter Rate of Interest">
+					</div>   
+                                        <button [disabled]="!loancal.valid" type="submit" class="btn btn-login float-right">Submit</button>    
+                                </form>
+                        </div>
+                </div>
+            
+                <div class="container">
+                        <table class="table table-striped" border="4px">
+                            <thead >
+                                <tr style="color: blue; align-content:center;">
+                                    <th>Principal Amount</th>
+                                    <th>EMI Per Month</th>
+                                    <th>Total Amuont Paid</th>
+                                    <th>Only Interest Paid</th>                            
+                                </tr>
+                            </thead>
+                    
+                          <tbody >
+                              <td> {{loanAmount}}</td>
+                              <td> {{emi}}</td>
+                              <td> {{totalAmountPaid}}</td>
+                              <td> {{onlyInterest}}</td>
+                          </tbody>
+                        </table>
+                      </div>
+        </div>
+       </section>   
+      
+       <!-- <div class="col-md-6 banner-sec">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                                <div class="carousel-caption d-none d-md-block">
+                                        <div class="banner-text">
+                                                <h2>This is Heaven</h2>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div> -->
+
+       <!-- <h1>EMI for Ur Entered Data :{{ emi }}/m</h1> -->
+
+      
+    
+    

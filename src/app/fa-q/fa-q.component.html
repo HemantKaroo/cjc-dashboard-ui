@@ -1,0 +1,122 @@
+<p>fa-q works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>FAQ</title>
+	<style>
+		body{
+			background-color: rgb(153, 218, 196);
+		}
+		.layout{
+			width: 600px;
+			margin: auto;
+		}
+		.accordion{
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			background: rgb(105, 206, 105);
+			border-radius: 10px;
+		}
+		.accordion__question p{
+			margin: 5px;
+			padding: 0;
+			font-family: Verdana;
+			font-size: 20px;
+		}
+		.accordion__answer p{
+			margin: 5px;
+			padding: 10px;
+			font-size: large;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			color: rgb(255, 255, 255);
+			background: rgb(82, 170, 122);
+			border-radius: 10px;
+		}
+		.accordion:hover{
+			cursor: pointer;
+		}
+		.accordion__answer {
+			display: none;
+		}
+		.accordion.active .accordion__answer {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<h2 style="color:green; text-align:center">FAQs</h2>
+	<div class="layout">
+		<div class="accordion">
+			<div class="accordion__question">
+				<p>Where is  HindustanFinance?</p>
+
+			</div>
+			<div class="accordion__answer">
+				<p>HindustanFinance is located in Pune city, Maharashtra.</p>
+
+			</div>
+		</div>
+		<div class="accordion">
+			<div class="accordion__question">
+				<p>How it works?</p>
+
+			</div>
+			<div class="accordion__answer">
+				<p>
+				plz visit HindustanFinance Official Site
+				</p>
+
+			</div>
+		</div>
+        <div class="accordion">
+			<div class="accordion__question">
+				<p>How can i active my UserId and Password?</p>
+
+			</div>
+			<div class="accordion__answer">
+				<p>If you have opened an account recently, you will find your Internet Banking User ID/ Password in the Welcome Kit provided to you at the time of Account opening.<br>
+
+ 					In case you have forgotten your User ID or password and have a registered mobile number, you can get your User ID instantly on your registered mobile number and you can immediately set a new password online.<br>
+					 
+					If you do not have a registered mobile number, you can visit your nearest ICICI Bank Branch or our Customer care to request User ID or Password.
+					 
+					
+				</p>
+
+			</div>
+		</div>
+        <div class="accordion">
+			<div class="accordion__question">
+				<p>can i keep a track of the payment made by me?</p>
+
+			</div>
+			<div class="accordion__answer">
+				<p>Yes, all you need to do is login, go to the Payments and transfers >>> Bill payment >>> Transaction status (On left hand side) and select "Completed transaction" this will give you the payments that have been made - Biller wise, for the Billers whom you have registered.
+
+				</p>
+
+			</div>
+		</div>
+        <div class="accordion">
+			<div class="accordion__question">
+				<p>if i need any further account related information, how do i get such details?</p>
+
+			</div>
+			<div class="accordion__answer">
+				<p>You may call our Customer Care between 7:00 a.m. and 9:00 p.m. from your registered mobile number.<br>
+					 
+					Or write to us at customer.care@hindustanfinance.com with your savings account number, and any other details regarding the account that you may have from your registered email id for further assistance.</p>
+
+			</div>
+			
+		</div>
+		
+	
+	</div>
+	
+	<div class="center">
+		<button onclick="history.back()">Go Back</button>
+	  </div>
+</body>
+</html>

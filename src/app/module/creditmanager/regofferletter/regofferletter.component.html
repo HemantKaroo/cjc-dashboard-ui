@@ -1,0 +1,168 @@
+<section class="shadow p-3 mb-5 bg-body rounded">
+  <div>
+    <div class="container">
+      <div>
+        <h2 class="text-center"><b>Offer Letter</b></h2>
+
+
+
+        <div class="container">
+
+
+          <!-- Main Offerleter Creation Form -->
+          <div>
+
+            <div class="form-row">
+              <!-- Create Offer Letter -->
+
+              <div class="form-group col-md-7">
+                <form [formGroup]="offerlatterForm" (ngSubmit)="onSubmit()">
+                  <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+                    <!-- Form Starts -->
+                    <h5 class="text-center" align="center"><b>Fill Offer Letter Details</b></h5>
+                    <hr>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputloanno">Loan Number</label>
+                        <input type="number" class="form-control" name="loanno" id="inputloanno"
+                          placeholder="Loan Number" formControlName="loanno">
+                      </div>
+                      <div class="form-group col-md-6" formGroupName="emidetails">
+                        <label for="inputemiamountmonthly">Emi Amount monthly</label>
+                        <input type="number" class="form-control" name="emiamountmonthly" id="inputemiamountmonthly"
+                          placeholder="Emi Amount monthly" formControlName="emiamountmonthly">
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputrateofinterest">Rate Of Interest</label>
+                        <input type="number" class="form-control" name="rateofinterest" id="inputrateofinterest"
+                          placeholder="Previous emi status" formControlName="rateofinterest">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputloanamount">Loan Amount</label>
+                        <input type="number" class="form-control" name="loanamount" id="inputloanamount"
+                          placeholder="Loan Amount" formControlName="loanamount">
+                      </div>
+                    </div>
+
+                    <div class="form-row" formGroupName="emidetails">
+
+                      <div class="form-group col-md-6">
+                        <label for="inputpreviousemistatus">Previous EMI Status</label>
+                        <input type="text" class="form-control" name="previousemistatus" id="inputpreviousemistatus"
+                          placeholder="Previous EMI Status" formControlName="previousemistatus">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputnextemiduedate">Next EMI Due Date</label>
+                        <input type="date" class="form-control" name="nextemiduedate" id="inputloanamount"
+                          placeholder="Next EMI Due Date" formControlName="nextemiduedate">
+                      </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                      <div class="form-group col-md-6">
+                        <label for="inputtenure">Tenure</label>
+                        <input type="number" class="form-control" name="tenure" id="inputtenure" placeholder="Tenure"
+                          formControlName="tenure">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputtotalamounttobepaid">Total Amount To Be Paid</label>
+                        <input type="text" class="form-control" name="totalamounttobepaid" id="inputtotalamounttobepaid"
+                          placeholder="Total Amount To Be Paid" formControlName="totalamounttobepaid">
+                      </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                      <div class="form-group col-md-6">
+                        <label for="inputprocessingfees">Processing Fees</label>
+                        <input type="number" class="form-control" name="processingfees" id="inputprocessingfees"
+                          placeholder="Processing Fees" formControlName="processingfees">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputtotalinterest">Total Interest</label>
+                        <input type="text" class="form-control" name="totalinterest" id="inputtotalinterest"
+                          placeholder="Total Interest" formControlName="totalinterest">
+                      </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                      <div class="form-group col-md-6">
+                        <label for="inputsanctiondate">Sanction Date</label>
+                        <input type="date" class="form-control" name="sanctiondate" id="inputsanctiondate"
+                          placeholder="Sanction Date" formControlName="sanctiondate">
+                      </div>
+
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="OfferSubimt">Submite Data</label>
+                        <input type="submit" class=" form-control btn btn-info" id="OfferSubimt">
+
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </form>
+              </div>
+
+              <!-- EMI Calculator -->
+              <div class="form-group col-md-5">
+                <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+                  <h5 class="text-center" align="center"><b>EMI Calculator</b></h5>
+                  <hr>
+                  <div class="form-row">
+                    <table class="table table-bordered">
+                      
+                      <tbody>
+                        <tr>
+                          <th scope="row">Loan Amount:</th>
+                          <td><input type="number" [(ngModel)]="extraloanAmount" /></td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row">Tenure in Months:</th>
+                          <td><input type="number" [(ngModel)]="extratenure" /></td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row">Interest:</th>
+                          <td><input type="number" [(ngModel)]="extrainterest" /></td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="row"><button class="btn btn-info" (click)="cal()">Calculate EMI</button></th>
+                          <td><h3>EMI:{{ extraemi }}/m</h3></td>
+                          
+                        </tr>
+                        </tbody>
+                        </table>
+
+                   
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

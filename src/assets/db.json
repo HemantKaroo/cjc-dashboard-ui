@@ -1,0 +1,20 @@
+{
+  "DocInfo": [
+    
+    {
+      "status": 1,
+      "custId": 63,
+      "id": 6
+    },
+    {
+      "status": 1,
+      "custId": 47,
+      "id": 7
+    },
+    {
+      "status": 0,
+      "custId": 79,
+      "id": 8
+    }
+  ]
+}

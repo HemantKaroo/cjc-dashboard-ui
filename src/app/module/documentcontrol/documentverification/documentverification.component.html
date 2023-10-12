@@ -1,0 +1,45 @@
+<h4 class="text-center"><b>Document Verification</b></h4>
+<hr>
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+        <div class="container ">
+            <table class="table table-striped table-striped" border="1">
+                <tbody>
+                    <tr>
+                        <th> Id</th>
+                        <th> CUSTOMER FULL NAME</th>
+                        <th> MOBILE NUMBER</th>
+                        <th> EMAIL ID</th>
+                        <th> VIEW FORM</th>
+                        <th>Get Status</th>
+                        <th> STATUS</th>
+                    </tr>
+                </tbody>
+                <tr *ngFor="let docl of doclist">
+                    <td align="center">{{docl.customerid}} </td>
+                    <td>{{docl.customerfirstname}}&nbsp;{{docl.customermiddlename}}&nbsp;{{docl.customerlastname}}</td>
+                    <td>{{docl.customermobilenumber}}</td>
+                    <td>{{docl.customeremail}}</td>
+                     <td><a [routerLink]="['docvlist',docl.customerid]" (click)="checkDoc(docl.customerid)">show
+                            details</a>
+                    </td>
+                    <td>
+                        <button (click)="getStatus(docl.customerid)" class="btn btn-primary"> Get Value of STATUS
+                        </button>
+                    </td>
+                    <td>
+                        <div *ngIf="backendStatus==1 && idchk==docl.customerid">
+                            <button class="btn btn-success" [disabled]="0">Approve</button>
+                        </div>
+                        <div *ngIf="backendStatus==0 && idchk==docl.customerid">
+                            <button class="btn btn-danger" [disabled]="0">Rejected</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>       
+    </div>
+    </div>
+    <router-outlet></router-outlet>

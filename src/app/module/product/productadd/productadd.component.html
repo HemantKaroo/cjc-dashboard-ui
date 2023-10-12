@@ -1,0 +1,21 @@
+<p>productadd works!</p>
+<form [formGroup]="addProduct" (ngSubmit)="saveProd()">
+    <h3 style="text-align: center; color: darkviolet;">! New Product Add Here !</h3>
+    <div class="jumbotron"style="text-align:center" >
+    <table class="table table-dark center " style="text-align:center" >
+        <tr>
+            <td>Product Name</td>
+            <td> <input type="text" formControlName="productName" name="productName" placeholder="Enter Product name"></td>
+        </tr>
+        <tr>
+            <td>Product Price</td>
+            <td> <input type="number" formControlName="productPrice" name="productName" placeholder="Enter Product Price"></td>
+        </tr>
+        <tr>
+            <td>Product Description</td>
+            <td><input type="text" formControlName="productDesc" name="productDesc" placeholder="Enter Product Description"></td>
+        </tr>          
+    </table>
+    <button class="btn btn-primary" type="submit">Add Product</button>&nbsp;&nbsp;
+</div>
+</form>

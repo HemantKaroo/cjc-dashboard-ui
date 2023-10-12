@@ -1,0 +1,39 @@
+
+<div class="shadow p-3 mb-5 bg-body bg-white rounded">
+    <span>{{customer.customerfirstname}} has {{defaultCounter}} Defaults </span>&nbsp;
+   
+        <button *ngIf="defaultCounter>=3" class="btn btn-danger" (click)="sendToTele()" >Send To Tele Caller</button>
+    
+    <table class="table  border border-dark rounded" >
+        <thead>
+
+            <tr class="table-secondary">
+
+                <th> CUSTOMER NAME</th>
+                <th> EMI DATES</th>
+                <th> EMI</th>
+                <th> PRINCIPAL (A)</th>
+                <th> INTEREST(B)</th>
+                <th> TOTAL(A+B)</th>
+                <th> BALANCE</th>
+                <th> PAID / NOT PAID</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let docl of counter( customer.offerletter.tenure*12); let i=index;  ">
+                <td>{{customer.customerfirstname}} &nbsp; {{customer.customerlastname}}</td>
+                <td>{{date|date:shortDate}}</td>
+                <td>{{emi}}</td>
+                <td>{{(emi*(i+1))-((emi*(i+1))*interest)}}</td>
+                <td>{{(emi*(i+1))*interest}}</td>
+                <td>{{((emi*(i+1))-((emi*(i+1))*interest))+((emi*(i+1))*interest)}}</td>
+                <td>{{principal-(emi*(i+1))}}</td>
+                <td><button class="btn btn-primary">Paid</button>&nbsp;
+                    <button class="btn btn-danger" (click)="defCounter()"> Not Paid</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

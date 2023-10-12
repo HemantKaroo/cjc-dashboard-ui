@@ -1,0 +1,49 @@
+<div class="container">
+  <h4 class="text-center"><b>View All Equiries</b></h4>
+<hr>
+  <div class="shadow p-3 mb-5 bg-body bg-white rounded" >
+   
+    <table class="table">
+      <thead align="center">
+        <tr>
+          <th>Enquiry ID</th>
+          <th>Customer Full Name</th>
+          <th>City</th>
+          <th>DOB</th>
+          <th>Emial</th>
+          <th>Mobile</th>
+          <th>Pan Number</th>
+          <th scope="col">Get Cibil Status</th>
+          <th scope="col">Registration</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let ce of enq" align="center">
+          <td> {{ce.eid}}</td>
+          <td> {{ce.firstName}}&nbsp;{{ce.middleName}}&nbsp;{{ce.lastName}}</td>
+          <td> {{ce.city}}</td>
+          <td> {{ce.dob}}</td>
+          <td> {{ce.email}}</td>
+          <td> {{ce.mobileNumber}}</td>
+          <td> {{ce.pancardNumber}}</td>
+          <td><button (click)="sendtoOH(ce.eid)" type="button" class="btn btn-info">Get Cibil Status</button></td>
+          <td *ngIf="ce.eid==newid">
+            <div *ngIf="cibilok==3">
+              <button (click)="sendtoreg()" type="button" class="btn btn-warning"
+                [disabled]="cibilok==0">Pending...</button>
+            </div>
+            <div *ngIf="cibilok==1">
+              <button (click)="sendtoreg()" type="button" class="btn btn-success"
+                [disabled]="cibilok==0">Registration</button>
+            </div>
+            <div *ngIf="cibilok==0">
+              <button (click)="sendtoreg()" type="button" class="btn btn-danger"
+                [disabled]="cibilok==0">Rejected</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

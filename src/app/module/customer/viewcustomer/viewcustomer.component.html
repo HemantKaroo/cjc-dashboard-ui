@@ -1,0 +1,36 @@
+<h4 class="text-center"><b>My Loan Status</b></h4>
+<hr>
+
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+    <table class="table table-striped" border="2px">
+        <thead>
+            <tr>
+                <th>Enquiry ID</th>
+                <th>Customer Full Name</th>
+                <th>City</th>
+                
+                <th>DOB</th>
+                <th>Emial</th>
+                <th>Mobile</th>
+                <th>Pan Number</th>
+                <th>Status</th>
+               
+            </tr>
+        </thead>
+      <tbody >
+        <tr >
+          <td> {{enq.eid}}</td>
+          <td> {{enq.firstName}}&nbsp;{{enq.middleName}}&nbsp;{{enq.lastName}}</td>
+          <td> {{enq.city}}</td>
+          <td> {{enq.dob}}</td>
+          <td> {{enq.email}}</td>
+          <td> {{enq.mobileNumber}}</td>
+          <td> {{enq.pancardNumber}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

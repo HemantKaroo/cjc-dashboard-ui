@@ -1,0 +1,57 @@
+
+<h4 class="text-center">Credit Manager</h4>
+<hr>
+<div class="container ">
+    <div class="shadow p-3 mb-5 bg-body  rounded">
+    <table class="table  table-striped" border="1">
+        <tbody style="margin: 2px;;">
+            <tr class="table-secondary">
+                <th> Id</th>
+                <th> CUSTOMER FULL NAME</th>
+                
+                <th> STATUS</th>
+                <th> CREATE OFFER LETTER</th>
+                <th> VIEW OFFER LETTER </th>
+                <th> SEND SANCTION LETTER </th>
+                <th> ACTION </th>
+            </tr>
+        </tbody>
+        <tr *ngFor="let d of docInfo">
+            <td>{{d.custId}}</td>
+            <td>{{d.firstName}}&nbsp;{{d.middleName}}&nbsp;{{d.lastName}}</td>
+            <td>{{d.status}}</td>  
+            <td>
+                <div *ngIf="d.status==1"> 
+                    <button [routerLink]="['offerletterform',d.custId]" class="btn btn-success"> Create Offer Letter </button>    
+                </div>
+                <div *ngIf="d.status==0"> 
+                    <button  class="btn btn-danger">Deficiency in Document </button>    
+                </div>
+            </td>
+            <td>
+                <div *ngIf="d.status==1"> 
+                    <button [routerLink]="['offerletterview',d.custId]" class="btn btn-success">View Offer Letter </button>    
+                </div>
+                <div *ngIf="d.status==0"> 
+                    <button  class="btn btn-danger">Deficiency in Document </button>    
+                </div>
+            </td>
+
+            <td>
+                <div> 
+                    <button (click)="abc(d.custId)" class="btn btn-success">Status</button>    
+                </div>
+            </td>
+            <td>
+                <div *ngIf="num1==1 && cust1.customerid==d.custId">
+                    <button (click)="xyz()" class="btn btn-success">APPROVE</button>
+                </div>
+                <div *ngIf="num1==0 && cust1.customerid==d.custId">
+                    <button (click)="xyz()" class="btn btn-danger">Reject</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+<router-outlet></router-outlet>

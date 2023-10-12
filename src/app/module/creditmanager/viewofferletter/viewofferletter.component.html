@@ -1,0 +1,214 @@
+<!-- New Offer Letter -->
+
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <div class="container" id="OfferLetterPdf">
+        <h1 align="center" style="color: Red;"><b>Offer Letter</b></h1>
+        <div class="appointment-letter">
+            <p style="text-align: center;font-size:20px">PRIVATE AND CONFIDENTIAL
+            </p>
+            <p> Customer Id : {{cust.customerid}} <br />
+                Offer Letter Id : {{offerobj.currentloanid}} <br />
+            </p>
+            <p>Mr. ƒ Ms. {{cust.customerfirstname}}&nbsp; {{cust.customerlastname}} <br />
+                {{cust.permentaddress.areaname}}, {{cust.permentaddress.district}}<br />
+                {{cust.permentaddress.state}},<br />
+                City- PIN:{{cust.permentaddress.pincode}}
+            </p>
+            <p>
+                Dear Applicant {{cust.customerfirstname}},
+            </p>
+            <p> We thank you for deciding to be a part of the SDK Finance family.
+            </p>
+            <p> Based on the application and information
+                provided there, we are based to extend an offer to you for a loan as per the
+                preliminary terms and condition mentioned below. </p>
+            <table border=1 cellspacing=0 align="center">
+                <tr>
+                    <td colspan="3" style="text-align:center">ANNEXURE I</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align:center">SDK FINANCE LIMITED</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Customer Id </td>
+                    <td colspan="2"> {{cust.customerid}} </td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Name </td>
+                    <td colspan="2">{{cust.customerfirstname}}&nbsp;{{cust.customermiddlename}}&nbsp;
+                        {{cust.customerlastname}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Address </td>
+                    <td colspan="2"> {{cust.permentaddress.areaname}},&nbsp;
+                        {{cust.permentaddress.district}},&nbsp;{{cust.permentaddress.state}},&nbsp;
+                        {{cust.permentaddress.pincode}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Email Address </td>
+                    <td colspan="2">{{cust.customeremail}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align:center">Loan Details </td>
+
+                </tr>
+                <tr>
+                    <td style="width:40%">Loan No </td>
+                    <td colspan="2">{{offerobj.loanno}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">EMI Id </td>
+                    <td colspan="2"> {{offerobj.emidetails.emiid}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Every Month Installment </td>
+                    <td colspan="2"> {{offerobj.emidetails.emiamountmonthly}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Next EMI Due Date </td>
+                    <td colspan="2"> {{offerobj.emidetails.nextemiduedate}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Previous EMI Status </td>
+                    <td colspan="2"> {{offerobj.emidetails.previousemistatus}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Loan Amount </td>
+                    <td colspan="2"> {{offerobj.loanamount}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Rate Of Interest</td>
+                    <td colspan="2"> {{offerobj.rateofinterest}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Tenure</td>
+                    <td colspan="2"> {{offerobj.tenure}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Total Amount To Be Paid</td>
+                    <td colspan="2"> {{offerobj.totalamounttobepaid}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Processing Fee</td>
+                    <td colspan="2"> {{offerobj.processingfees}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Total Interest</td>
+                    <td colspan="2"> {{offerobj.totalinterest}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Sactioned Date</td>
+                    <td colspan="2"> {{offerobj.sanctiondate}}</td>
+                </tr>
+                <tr>
+                    <td style="width:40%">Remark</td>
+                    <td colspan="2"> {{offerobj.remark}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="width:40%">Remarks: If you have any query related to Offer Letter please do
+                        contact to
+                        our customer executive
+                    </td>
+                </tr>
+                <th colspan="3" style="text-align:center" class="container">
+
+                    <div class="about-section" align="left">
+                        <h6>Addition conditions to comply prior to loan disbursal:</h6>
+                        <p>1. Repayment from SDK Finance </p>
+                        <p>2. Legal vetting and search to be conducted </p>
+                        <p>3. NOC and offered collateral </p>
+                        <p>4. Confirmation form,official ID and Copy of ID </p>
+                    </div>
+                </th>
+            </table><br>
+            <p>Declarations: This offer letter is made on the basis of information provided by you. Should it prove
+                untrueƒincorrect at any time, the Company reserves the rights to take appropriate action including
+                forthwith termination of service. We shall be entitled to initiate necessary enquiries with the source
+                of reference provided by you. In case of unfavorable report, we shall be entitled to take appropriate
+                steps including forthwith terminating this agreement</p>
+            <p>Wish you a successful professional stint with us. We look forward to a mutually beneficial and enriching
+                experience having you on board. All the best!</p>
+            <p>Warm Regards,<br />
+                For SDK Finance Pvt Ltd.
+            </p>
+            <p>Credit Manager<br />
+
+            </p>
+            <div align="right">
+                <p class="text-right">I have read the above terms and conditions of my Offer Letter. I accept
+                    the same.<br />
+                    _____________________ <br />
+                    {{cust.customerfirstname}}&nbsp;{{cust.customermiddlename}}&nbsp;
+                    {{cust.customerlastname}}<br />
+                    Customer Id: {{cust.customerid}}
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Buttons -->
+<div>
+    <div>
+        <button class="btn btn-info float-left" (click)="getback()">Go Back</button> &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger float-right" (click)="offerlt()">Send Email 2 CE</button> &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-success float-center" (click)="generatepdf()">Generate PDF</button> &nbsp;&nbsp;
+    </div>
+
+</div>
+<!-- Email Button -->
+
+<div class="form-row" *ngIf="abc==1">
+    <div class="form-group col-md-7">
+
+    </div>
+    <div class="form-group col-md-5">
+        <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+            <div>
+                <form [formGroup]="mail" (ngSubmit)="sendEmail(cust.customerid)">
+                    <div>
+
+                        <table class="table table-bordered">
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Receiver Email Id</th>
+                                    <td><input type="text" formControlName="toEmail"></td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Subject</th>
+                                    <td> <input type="text" formControlName="subject"> &nbsp;</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">Message</th>
+                                    <td> <textarea formControlName="textBody"></textarea>&nbsp;</td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row"> Attachment:</th>
+                                    <td><input type="file" class="custom-file-input" id="emailsending"
+                                            (change)="onselectAttachment($event)"><br><br>
+
+                                        <label class="custom-file-label" for="emailsending">Choose file</label>
+                                        <img [src]="view" height="50">
+                                       
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                        <div align="center">
+                            <input class="btn btn-primary" type="submit" value="sendEmail">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

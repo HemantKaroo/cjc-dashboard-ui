@@ -1,0 +1,42 @@
+<h4 class="text-center"><b>Check CIBIL Score</b></h4>
+<hr>
+
+<div class="container">
+  <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr align="center">
+          <th>Enquiry ID</th>
+          <th>Customer Full Name</th>
+          <th>Emial</th>
+          <th>Mobile</th>
+          <th>Pan Number</th>
+          <th>CIBIL CHECK</th>
+          <th>CIBIL SCORE</th>
+          <th style="border: 2px;">OH APPROVAL</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ce of enq">
+          <td align="center"> {{ce.eid}}</td>
+          <td> {{ce.firstName}} &nbsp;{{ce.middleName}}&nbsp; {{ce.lastName}}</td>
+          <td> {{ce.email}}</td>
+          <td> {{ce.mobileNumber}}</td>
+          <td> {{ce.pancardNumber}}</td>
+          <td><button (click)="clickCIBIL(ce.eid,ce.pancardNumber)" type="button" class="btn btn-info">Generate
+              CIBIL</button></td>
+          <td *ngIf="ce.eid==cibilid">{{cibilscore}}</td>
+          <td>
+            <div *ngIf="cibilscore>750 && ce.eid==cibilid"><button (click)="sendtoCE(ce.eid,1,cibilscore)" type="button"
+                class="btn btn-success">APPROVE</button></div>&nbsp;
+            <div *ngIf="cibilscore<750 && ce.eid==cibilid"><button (click)="sendtoCE(ce.eid,0,cibilscore)" type="button"
+                class="btn btn-danger">REJECT</button></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

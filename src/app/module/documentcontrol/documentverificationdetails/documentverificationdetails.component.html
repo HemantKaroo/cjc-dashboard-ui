@@ -1,0 +1,501 @@
+<h4 class="text-center" style="color: rgba(14, 14, 95, 0.834);"><b>{{docobj.customerfirstname}}&nbsp;{{docobj.customerlastname}}'s Documents </b> </h4>
+<hr>
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+
+<div class="jumbotron" style="text-align:center">
+    <form [formGroup]="statusCheck" (ngSubmit)="statCheck()">
+    <table class="table table-striped center " style="text-align:center" border="2" >
+
+        <!-- CUSTOMER DETAILS -->
+        <fieldset *ngIf="step == 1">
+            <h2 class="fs-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                CUSTOMER DETAILS</h2>
+            <tr>
+                <!-- value={{docobj.customerid}} -->
+                <td> CUSTOMER ID</td>
+                <td> <input type="number"  name="customerIdStatus" [(ngModel)]=docobj.customerid  formControlName="customerIdStatus"> </td>
+            </tr>
+
+            <tr>
+                <!-- value={{docobj.customerid}} -->
+                <td> CUSTOMER FIRST NAME</td>
+                <td> <input type="text"  name="firstName1" [(ngModel)]=docobj.customerfirstname  formControlName="firstName1"> </td>
+            </tr>
+            <!-- <tr>
+                <td> CUSTOMER FIRST NAME</td>
+                <td> <input type="text" value={{docobj.customerfirstname}}></td>
+            </tr> -->
+            <tr>
+                <!-- value={{docobj.customerid}} -->
+                <td> CUSTOMER MIDDLE NAME</td>
+                <td> <input type="text"  name="middleName1" [(ngModel)]=docobj.customermiddlename  formControlName="middleName1"> </td>
+            </tr>
+            <!-- <tr>
+                <td> CUSTOMER MIDDLE NAME</td>
+                <td> <input type="text" value={{docobj.customermiddlename}}></td>
+            </tr> -->
+            <tr>
+                <!-- value={{docobj.customerid}} -->
+                <td> CUSTOMER LAST NAME</td>
+                <td> <input type="text"  name="lastName1" [(ngModel)]=docobj.customerlastname  formControlName="lastName1"> </td>
+            </tr>
+            <!-- <tr>
+                <td> CUSTOMER LAST NAME</td>
+                <td> <input type="text" value={{docobj.customerlastname}}></td>
+            </tr> -->
+            <tr>
+                <td> CUSTOMER DOB</td>
+                <td> <input type="text" value={{docobj.customerdob}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER GENDER</td>
+                <td> <input type="text" value={{docobj.customergender}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER EMAIL</td>
+                <td> <input type="text" value={{docobj.customeremail}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER MOBILE NUMBER</td>
+                <td> <input type="text" value={{docobj.customermobilenumber}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER ADDITIONAL MOBILE NUMBER</td>
+                <td> <input type="text" value={{docobj.customeradditionalmobilenumber}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER AMOUNT PAID FOR CALL</td>
+                <td> <input type="text" value={{docobj.customeramountpaidforcar}}></td>
+            </tr>
+            <tr>
+                <td> CUSTOMER TOTAL LOAN REQUIRED</td>
+                <td> <input type="text" value={{docobj.customertotalloanrequired}}></td>
+            </tr>
+            <!-- <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua" /> -->
+        </fieldset>
+
+        <!--OCCUPATION DETAILS  -->
+        <fieldset *ngIf="step == 2">
+            <h2 class="fs-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                OCCUPATION DETAILS</h2>
+            <tr>
+                <td> OCCUPATION ID</td>
+                <td> <input type="text" value={{docobj.occupation.occupationid}}></td>
+            </tr>
+            <tr>
+                <td> OCCUPATION TYPE</td>
+                <td> <input type="text" value={{docobj.occupation.occupationtype}}></td>
+            </tr>
+            <tr>
+                <td>SALARY</td>
+                <td> <input type="text" value={{docobj.occupation.salary}}></td>
+            </tr>
+            <tr>
+                <td> REMAINING WORKING PEROID</td>
+                <td> <input type="text" value={{docobj.occupation.remainingWorkingPeriod}}></td>
+            </tr>
+            <tr>
+                <td> DESIGNATION</td>
+                <td> <input type="text" value={{docobj.occupation.designation}}></td>
+            </tr>
+            
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!-- DOCUMENT Details -->
+        <fieldset *ngIf="step == 3"> 
+            <h2 class="fs-title">DOCUMENT Details</h2>
+            <tr>
+                <td> ID</td>
+                <td> <input type="text" value={{docobj.documents.documentID}}></td>
+            </tr>
+            <tr>
+                <td> QUALIFICATION</td>
+                <td> <input type="text" value={{docobj.documents.qualification}}></td>
+            </tr>
+            
+            <tr>
+                <td> SALARY SLIP</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.occupation.salrySlip" height="150"></td><br><br><br>
+                <input type="radio"  name="salarySlipStatus" formControlName="salarySlipStatus" value=1 >&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="salarySlipStatus" formControlName="salarySlipStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+           
+            <tr>
+                <td> ADHAAR CARD</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.addharcard" height="150"></td><br><br><br>
+                <input type="radio" name="adhaarCardStatus" formControlName="adhaarCardStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="adhaarCardStatus" formControlName="adhaarCardStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> PAN CARD</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.pancard" height="150"></td><br><br><br>
+                <input type="radio" name="panCardStatus" formControlName="panCardStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="panCardStatus" formControlName="panCardStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> LAST THREE YEAR ITR</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.lastthreeyearITR" height="150"></td><br><br><br>
+                <input type="radio" name="itrStatus" formControlName="itrStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="itrStatus" formControlName="itrStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> PHOTO</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.photo" height="150"></td><br><br><br>
+                <input type="radio" name="photostatus" formControlName="photostatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="photostatus" formControlName="photostatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> SIGNATURE</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.signature" height="150"></td><br><br><br>
+                <input type="radio" name="signatureStatus" formControlName="signatureStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="signatureStatus" formControlName="signatureStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> BANKCHEQUE</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.documents.bankcheque" height="150"></td><br><br><br>
+                <input type="radio" name="banckChequeStatus" formControlName="banckChequeStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="banckChequeStatus" formControlName="banckChequeStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+        </fieldset>
+
+        <!-- CURRENT ADDRESS -->
+        <fieldset *ngIf="step == 4">
+            <h2 class="fs-title">CURRENT ADDRESS</h2>
+            <tr>
+                <td> LOCAL ADDRESS ID</td>
+                <td> <input type="text" value={{docobj.currentaddress.localaddressid}}></td>
+            </tr>
+
+            <tr>
+                <td> AREA NAME</td>
+                <td> <input type="text" value={{docobj.currentaddress.areaname}}></td>
+            </tr>
+            <tr>
+                <td> CITY NAME</td>
+                <td> <input type="text" value={{docobj.currentaddress.cityname}}></td>
+            </tr>
+            <tr>
+                <td> DISTRINCT</td>
+                <td> <input type="text" value={{docobj.currentaddress.district}}></td>
+            </tr>
+            <tr>
+                <td> STATE</td>
+                <td> <input type="text" value={{docobj.currentaddress.state}}></td>
+            </tr>
+            <tr>
+                <td> PANCODE</td>
+                <td> <input type="text" value={{docobj.currentaddress.pincode}}></td>
+            </tr>
+            <tr>
+                <td> HOUSE NUMBER</td>
+                <td> <input type="text" value={{docobj.currentaddress.housenumber}}></td>
+            </tr>
+            <tr>
+                <td> STREET NAME</td>
+                <td> <input type="text" value={{docobj.currentaddress.streetname}}></td>
+            </tr>
+        </fieldset>
+
+        <!-- PERMANENT ADDRESS -->
+        <fieldset *ngIf="step == 5">
+            <h2 class="fs-title">PERMANENT ADDRESS</h2>
+            <tr>
+                <td> PERMANENT ADDRESS ID</td>
+                <td> <input type="text" value={{docobj.permentaddress.permentaddressid}}></td>
+            </tr>
+            <tr>
+                <td> AREA NAME</td>
+                <td> <input type="text" value={{docobj.permentaddress.areaname}}></td>
+            </tr>
+            <tr>
+                <td> CITY NAME</td>
+                <td> <input type="text" value={{docobj.permentaddress.cityname}}></td>
+            </tr>
+            <tr>
+                <td> DISTRINCT</td>
+                <td> <input type="text" value={{docobj.permentaddress.district}}></td>
+            </tr>
+            <tr>
+                <td> STATE</td>
+                <td> <input type="text" value={{docobj.permentaddress.state}}></td>
+            </tr>
+            <tr>
+                <td> PINCODE</td>
+                <td> <input type="text" value={{docobj.permentaddress.pincode}}></td>
+            </tr>
+            <tr>
+                <td> HOUSE NUMBER</td>
+                <td> <input type="text" value={{docobj.permentaddress.housenumber}}></td>
+            </tr>
+            <tr>
+                <td> STREET NAME</td>
+                <td> <input type="text" value={{docobj.permentaddress.streetname}}></td>
+            </tr>
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!-- MORTAGEGE Details -->
+        <fieldset *ngIf="step == 6">
+            <h2 class="fs-title">MORTAGEGE Details</h2>
+            <tr>
+                <td> MORTGAGE ID</td>
+                <td> <input type="text" value={{docobj.mortagagedetail.mortgageid}}></td>
+            </tr>
+            <tr>
+                <td> MORTGAGE PROPERTY VALUE</td>
+                <td> <input type="text" value={{docobj.mortagagedetail.mortgagepropertyvalue}}></td>
+            </tr>
+            <tr>
+                <td> MORTGAGE PROPERTY PROOF</td>
+                <td><img [src]="'data:image/jpeg;base64,'+docobj.mortagagedetail.mortgagepropertyproof" height="150">
+                </td><br><br><br>
+                <input type="radio" name="mortgageProofStatus" formControlName="mortgageProofStatus" value=1>&nbsp;
+                <label style="font-size: medium;"><b>APROVE</b></label><br>
+                <input type="radio" name="mortgageProofStatus" formControlName="mortgageProofStatus" value=0>&nbsp;
+                <label style="font-size: medium;"><b>REJECT</b> </label>
+            </tr>
+            <tr>
+                <td> MORTGAGE PROPERTY TYPE</td>
+                <td> <input type="text" value={{docobj.mortagagedetail.mortgagepropertytype}}></td>
+            </tr>
+            <tr>
+                <td> MORTGAGE LOAN PROPERTY </td>
+                <td> <input type="text" value={{docobj.mortagagedetail.mortgageloanonproperty}}></td>
+            </tr>
+        </fieldset>
+
+        <!-- PREVIOUS LOAN Details -->
+        <fieldset *ngIf="step == 7">
+            <h2 class="fs-title">PREVIOUS LOAN Details</h2>
+            <tr>
+            <tr>
+                <td> PREVIOUS LOAN ID</td>
+                <td> <input type="text" value={{docobj.previousloan.previousLoanid}}></td>
+            </tr>
+            <tr>
+                <td> PREVIOUS LOAN AMOUNT</td>
+                <td> <input type="text" value={{docobj.previousloan.previousLoanamount}}></td>
+            </tr>
+            <tr>
+                <td> PREVIOUS LOAN TENURE</td>
+                <td> <input type="text" value={{docobj.previousloan.previousloantenure}}></td>
+            </tr>
+            <tr>
+                <td> PREVIOUS LOAN PAID AMOUNT</td>
+                <td> <input type="text" value={{docobj.previousloan.previousloanpaidamount}}></td>
+            </tr>
+            <tr>
+                <td> PREVIOUS LOAN REMAINING AMOUNT</td>
+                <td> <input type="text" value={{docobj.previousloan.previousloanremainingamount}}></td>
+            </tr>
+            <tr>
+                <td> BRANCH ID</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.branchid}}></td>
+            </tr>
+            <tr>
+                <td> BRANCH NAME</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.branchname}}></td>
+            </tr>
+            <tr>
+                <td> BRANCH CODE</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.branchcode}}></td>
+            </tr>
+            <tr>
+                <td> BRANCH TYPE</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.branchtype}}></td>
+            </tr>
+            <tr>
+                <td> IFSC CODE</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.ifsccode}}></td>
+            </tr>
+            <tr>
+                <td> MICR CODE</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.micrcode}}></td>
+            </tr>
+            <tr>
+                <td> CONTACT NUMBER</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.conatctnumber}}></td>
+            </tr>
+            <tr>
+                <td> BANK ADDRESS</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.bankaddress}}></td>
+            </tr>
+            <tr>
+                <td> EMAIL</td>
+                <td> <input type="text" value={{docobj.previousloan.previousbankloandetails.email}}></td>
+            </tr>
+            <tr>
+                <td> PREVIOUS LOAN STATUS</td>
+                <td> <input type="text" value={{docobj.previousloan.previousloanstatus}}></td>
+            </tr>
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!--DEALER ACCOUNT Details  -->
+        <fieldset *ngIf="step == 8">
+            <h2 class="fs-title">DEALER ACCOUNT Details</h2>
+            <tr>
+                <td> ACCOUNT ID</td>
+                <td> <input type="text" value={{docobj.dealeraccountdetails.accountid}}></td>
+            </tr>
+            <tr>
+                <td> ACCOUNT TYPE</td>
+                <td> <input type="text" value={{docobj.dealeraccountdetails.accounttype}}></td>
+            </tr>
+            <tr>
+                <td> ACCOUND HOLDER NAME</td>
+                <td> <input type="text" value={{docobj.dealeraccountdetails.accountholdername}}></td>
+            </tr>
+            <tr>
+                <td> ACCOUNT NUMBER</td>
+                <td> <input type="text" value={{docobj.dealeraccountdetails.accountnumber}}></td>
+            </tr>
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!--GUARANTOR Details  -->
+        <fieldset *ngIf="step == 9">
+            <h2 class="fs-title">GUARANTOR Details</h2>
+            <tr>
+                <td> GID</td>
+                <td> <input type="text" value={{docobj.guarantordetail.gid}}></td>
+            </tr>
+            <tr>
+                <td> GUARANTOR NAME</td>
+                <td> <input type="text" value={{docobj.guarantordetail.guarantorname}}></td>
+            </tr>
+            <tr>
+                <td> RELATION WITH CLIENT</td>
+                <td> <input type="text" value={{docobj.guarantordetail.relationwithclient}}></td>
+            </tr>
+            <tr>
+                <td> PROFESSION</td>
+                <td> <input type="text" value={{docobj.guarantordetail.profession}}></td>
+            </tr>
+            <tr>
+                <td> MOBILE NUMBER</td>
+                <td> <input type="text" value={{docobj.guarantordetail.mobileno}}></td>
+            </tr>
+            <tr>
+                <td> ADDRESS</td>
+                <td> <input type="text" value={{docobj.guarantordetail.address}}></td>
+            </tr>
+            <tr>
+                <td> PINCODE</td>
+                <td> <input type="text" value={{docobj.guarantordetail.pincode}}></td>
+            </tr>
+            <tr>
+                <td> CITY</td>
+                <td> <input type="text" value={{docobj.guarantordetail.city}}></td>
+            </tr>
+            <tr>
+                <td> DISTRICT</td>
+                <td> <input type="text" value={{docobj.guarantordetail.district}}></td>
+            </tr>
+            <tr>
+                <td> STATE</td>
+                <td> <input type="text" value={{docobj.guarantordetail.state}}></td>
+            </tr>
+            <tr>
+                <td> NUMBER</td>
+                <td> <input type="text" value={{docobj.guarantordetail.country}}></td>
+            </tr>
+            <tr>
+                <td> AADHAAR NUMBER</td>
+                <td> <input type="text" value={{docobj.guarantordetail.aadharno}}></td>
+            </tr>
+            <tr>
+                <td> PAN NUMBER</td>
+                <td> <input type="text" value={{docobj.guarantordetail.panno}}></td>
+            </tr>
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!-- CIBIL SCORE Details -->
+        <fieldset *ngIf="step == 10">
+            <h2 class="fs-title">CIBIL SCORE Details</h2>
+            <tr>
+                <td> CIBIL ID</td>
+                <td> <input type="text" value={{docobj.cibil.cibilid}}></td>
+            </tr>
+            <tr>
+                <td> CIBIL PAN NUMBER</td>
+                <td> <input type="text" value={{docobj.cibil.pannumber}}></td>
+            </tr>
+            <tr>
+                <td> CIBIL SCORE</td>
+                <td> <input type="text" value={{docobj.cibil.cibilscore}}></td>
+            </tr>
+            <tr>
+                <td> CIBIL SCORE DATE TIME</td>
+                <td> <input type="text" value={{docobj.cibil.cibilscoredatetime}}></td>
+            </tr>
+            <tr>
+                <td> STATUS</td>
+                <td> <input type="text" value={{docobj.cibil.status}}></td>
+            </tr>
+            <tr>
+                <td> REMARK</td>
+                <td> <input type="text" value={{docobj.cibil.remark}}></td>
+            </tr>
+            <!-- <input (click)="previous()" type="button" name="previous" class="previous action-button-previous"
+                value="Previous" /> &nbsp;
+            <input (click)="next()" type="button" name="next" class="next action-button" value="Next"
+                style="background-color: aqua;" /> -->
+        </fieldset>
+
+        <!-- //Buttons -->
+        <div class="form-row">
+            <div class="form-group col-md-4" *ngIf="step!=1">
+                <a class="btn btn-info"  (click)="previous()">Prvious</a>
+            </div>
+            <div class="form-group col-md-4" *ngIf="step!=10">
+                <a class="btn btn-primary"  (click)="next()">Next  </a>
+            </div>
+            <div class="form-group col-md-4" >
+                <button type="submit" class="btn btn-success" *ngIf="step==10" >Submit</button>
+            </div>
+            
+        </div>
+
+   
+    </table>
+</form>
+</div>
+</div>
+</div>
+

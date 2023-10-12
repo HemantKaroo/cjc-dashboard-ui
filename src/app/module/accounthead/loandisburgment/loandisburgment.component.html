@@ -1,0 +1,64 @@
+<div class="container">
+  <div>
+    <div class="jumbotron" style="text-align:center">
+      <h2 class="text-center">Loan Disbursment</h2>
+
+      <form class="form-group" [formGroup]="loandisform" (ngSubmit)="onSubmit()">
+        <h2 style="text-align: center;"></h2>
+        <div class="container">
+          <div class="form-group">
+            <label for="Name"><b>Loan Case Number</b></label><br>
+            <input type="text" placeholder="Loan Case Number" formControlName="loancaseno" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Agreement Date</b></label><br>
+            <input type="text" placeholder="Previous emi status" formControlName="agreementdate" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Total Amount</b></label><br>
+            <input type="number" placeholder="Total Amount" formControlName="totalamount" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Bank Name</b></label><br>
+            <input type="number" placeholder="Rate of Interest" formControlName="bankname" required>
+          </div><br>
+
+          <div>
+            <label for="Name"><b>Account Number</b></label><br>
+            <input type="number" placeholder="Total Amount To Be Paid" formControlName="accountnumber" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>IFSC code</b></label><br>
+            <input type="number" placeholder="IFSC code" formControlName="ifsccode" required>
+          </div><br>
+
+          <div>
+            <label for="Name"><b>Amount Pay Type</b></label><br>
+            <input type="number" placeholder="Amount Pay Type" formControlName="amountpaytype" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Account Type</b></label><br>
+            <input type="number" placeholder="Account  Type" formControlName="accounttype" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Transfer Amount</b></label><br>
+            <input type="text" placeholder="Transfer Amount" formControlName="transferamount" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Payment Status</b></label><br>
+            <input type="text" placeholder="Payment status" formControlName="paymentstatus" required>
+          </div><br>
+          <div>
+            <label for="Name"><b>Amount Paid Date</b></label><br>
+            <input type="text" placeholder="Amount Paid Date" formControlName="amountpaiddate" required>
+          </div><br>
+
+          <button class="btn btn-success" type="submit">Loan Disburse</button> &nbsp;
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

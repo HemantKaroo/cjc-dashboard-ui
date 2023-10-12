@@ -1,0 +1,79 @@
+<section style="background-color: gray;">
+  <div>
+    <form class="modal-content animate" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" (click)="back()" class="close"
+          title="Close Modal">&times;</span>
+        <img src="\assets\img\Carloan.jpg" alt="Avatar" class="avatar">
+      </div>
+
+      <h2 style="text-align: center;">This is an Enquiry Form Kindly Note Down Password For Future</h2>
+      <div class="container">
+        <label for="Name"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" formControlName="firstName" required>
+        <label for="Name"><b>Middle Name</b></label>
+        <input type="text" placeholder="Enter Middle Name" formControlName="middleName" required>
+        <label for="Name"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" formControlName="lastName" required>
+
+        <label for="Name"><b>State</b></label>
+        <div title="Select State">
+          <select formControlName="state" placeholder="Select State" class="form-control"
+            (change)="changestate($any($event.target).value)" required>
+            <option value="">Select State</option>
+            <option *ngFor="let s of statelist">{{s.name}}</option>
+          </select>
+        </div>
+
+        <label for="Name"><b>District</b></label>
+        <div title="Select District">
+          <select formControlName="district" placeholder="Select District" class="form-control" required>
+            <option value="">Select Districct</option>
+            <option *ngFor="let district of cities">{{district}} </option>
+          </select>
+        </div>
+
+        <label for="Name"><b>City</b></label>
+        <div title="Select City">
+          <select formControlName="city" placeholder="Select City" class="form-control">
+            <option value="">Select City</option>
+            <option *ngFor="let city of cities">{{city}} </option>
+          </select>
+        </div><br>
+        <div>
+          <label for="Name"><b>Pincode</b></label>
+          <input type="number" placeholder="Enter Pincode Number" formControlName="pincode" required>
+        </div> <br>
+
+        <div>
+          <label for="dob"><b> DOB </b></label>
+          <input name="dob" type="date" placeholder="Enter DoB" formControlName="dob" required>
+        </div><br>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter email" formControlName="email" required> <br>
+        <div>
+          <label for="pancardno"><b>Mobile Number</b></label>
+          <input type="number" placeholder="Enter Mobile NUmber" formControlName="mobileNumber" required>
+        </div>
+        <label for="pancardno"><b>PAN Card Number</b></label>
+        <input type="text" placeholder="Enter PAN Number" formControlName="pancardNumber" required>
+
+        <label for="username"><b>UserName</b></label>
+        <input type="text" placeholder="Enter UserName" formControlName="userName" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="text" placeholder="Enter Password" formControlName="passWord" required>
+
+
+        <button type="submit">Register</button> &nbsp;
+
+        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+          class="cancelbtn">Cancel</button> &nbsp;&nbsp;&nbsp;
+        <button type="button" (click)="back()" style="width:min-content;" class="cancelbtn">Back</button>
+      </div>
+
+    </form>
+  </div>
+</section>

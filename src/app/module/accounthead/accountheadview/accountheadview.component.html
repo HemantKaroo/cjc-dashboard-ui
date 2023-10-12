@@ -1,0 +1,37 @@
+
+<h4 class="text-center"><b>Account Head</b></h4>
+<hr>
+
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+    <table class="table table-striped table-striped" border="1">
+        <tbody>
+            <tr align="center" >
+                <th align="center"> Id</th>
+                <th align="center"> CUSTOMER NAME</th>
+                <th align="center"> Loan Number</th>
+                <th align="center"> Total Amount</th>
+                <th align="center"> Rate Of Interest</th>
+                <th align="center"> Loan Disbursment</th>
+              
+            </tr>
+        </tbody>
+        <tr *ngFor="let d of doclist">
+            <td align="center">{{d.customerid}}</td>
+            <td>{{d.customerfirstname}}&nbsp;{{d.customermiddlename}}&nbsp;{{d.customerlastname}}</td>
+            <td align="center">{{d.offerletter.loanno}}</td>
+            <td align="center">{{d.offerletter.tenure}}</td>
+            <td align="center">{{d.offerletter.rateofinterest}}</td>
+           
+            <td align="center">
+               
+         <button [routerLink]="['loandisform',d.customerid]" class="btn btn-success"> Loan Disbursment </button>    
+            </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<router-outlet></router-outlet>

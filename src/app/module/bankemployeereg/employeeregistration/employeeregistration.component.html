@@ -1,0 +1,38 @@
+<!-- <p>employeeregistration works!</p> -->
+
+<section >
+	<div class="container">
+		<div class="shadow p-3 mb-5 bg-body bg-white rounded">
+			<div>
+		<div class="row" >
+			<div class="col-md-6 login-sec">
+				<h2 class="text-center"><b>Employee Registation</b></h2>
+				<form class="login-form" [formGroup]="empreg" (ngSubmit)="onSubmit()" >
+					<div class="form-group" >
+						<label for="inputfullName" class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">Full Name *</label>
+						<input type="text" [(ngModel)]="fullName" class="form-control" id="inputfullName" formControlName="fullName" placeholder="Enter Full Name">
+					</div>
+                    <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">Email *</label>
+						<input type="email" [(ngModel)]="email" class="form-control" formControlName="email" placeholder="Enter Email">
+					</div>
+                     <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">MobileNumber *</label>
+						<input type="text" [(ngModel)]="mobileNumber" class="form-control" formControlName="mobileNumber" placeholder="Enter Mobile Number">
+					</div>  
+                    <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">UserName *</label>
+						<input type="text" [(ngModel)]="userName" class="form-control" formControlName="userName" placeholder="Enter UserName">
+					</div> 
+                    <div class="form-group">
+						<label class="text-uppercase" style="color: rgb(116, 21, 5); font-weight:bold; ">PassWord *</label>
+						<input type="text" [(ngModel)]="passWord" class="form-control" formControlName="passWord" placeholder="Enter Password">
+					</div>  
+                                        <button [disabled]="!empreg.valid" type="submit" class="btn btn-login float-right">Register</button>    
+                                </form>
+                        </div>
+                </div>    
+		</div>  
+		</div>  
+        </div>
+       </section> 

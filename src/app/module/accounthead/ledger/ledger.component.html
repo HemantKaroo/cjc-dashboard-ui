@@ -1,0 +1,42 @@
+
+
+<h4 class="text-center"><b>Ledger</b></h4>
+<hr>
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+
+        <div class="container ">
+            <table class="table  border border-dark rounded">
+                <thead >
+                    <tr class="table-secondary" >
+                        <th> Id</th>
+                        <th> CUSTOMER NAME</th>
+                        <th> MOBILE NUMBER</th>
+                        <th> EMAIL ID</th>
+                        <th> VIEW LEDGER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let docl of custList">
+                    <td>{{docl.customerid}}</td>
+                    <td>{{docl.customerfirstname}}&nbsp;{{docl.customerlastname}}</td>
+                    <td>{{docl.customermobilenumber}}</td>
+                    <td>{{docl.customeremail}}</td>
+
+
+                    <td><button [routerLink]="['ledgerDetails',docl.customerid]" class="btn btn-primary">ledger details</button>
+
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+
+
+        </div>
+
+
+    </div>
+    <router-outlet> </router-outlet>
+    
+</div>

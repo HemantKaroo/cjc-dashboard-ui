@@ -1,0 +1,39 @@
+
+<div class="container">
+  <h4 class="text-center"><b>Customer Offer Letter List</b></h4>
+<hr>
+  <div class="shadow p-3 mb-5 bg-body bg-white rounded" >
+    <table class="table table-bordered">
+        <thead align="center">
+            <tr>
+               
+                <th>Customer ID</th>
+                <th>Customer First Name</th>
+                <th>Customer Middle Name</th>
+                <th>Customer Last Name</th>                        
+                <th>Emial</th>
+                <th>Mobile</th>
+                <th>Remark</th>  
+                <th>Customer Sign Copy</th> 
+             
+            </tr>
+        </thead>
+      <tbody *ngFor= "let ce of cust">       
+        <tr *ngIf="ce.offerletter.remark==1"  align="center"  >
+          
+          <td > {{ce.customerid}}</td>
+          <td > {{ce.customerfirstname}}</td>
+          <td > {{ce.customermiddlename}}</td>
+          <td > {{ce.customerlastname}}</td>
+          <td > {{ce.customeremail}}</td>
+          <td > {{ce.customermobilenumber}}</td>
+          <td > {{ce.offerletter.remark}}</td>
+         
+             <td>
+            <button (click)="custsigncopy(ce.customerid)" type="button" class="btn btn-success">Customer Approval</button>
+             </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

@@ -1,0 +1,738 @@
+<style>
+    .vl {
+        border-left: 2px solid rgba(66, 77, 66, 0.581);
+        height: 100;
+    }
+</style>
+
+
+<h4 class="text-center"><b>Registration form</b></h4>
+<hr>
+
+<div class="container">
+
+    <div class="shadow p-3 mb-5 bg-body bg-white rounded">
+        <div class="progress">
+            <div *ngIf="step==1" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 11.5%">11%</div>
+            <div *ngIf="step==2" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 22%">22%</div>
+            <div *ngIf="step==3" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%">33%</div>
+            <div *ngIf="step==4" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 44%">44%</div>
+            <div *ngIf="step==5" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 55%">55%</div>
+            <div *ngIf="step==6" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 66%">66%</div>
+            <div *ngIf="step==7" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80%</div>
+            <div *ngIf="step==8" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 93%">93%</div>
+            <div *ngIf="step==9" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+
+        </div>
+        <br>
+
+        <form [formGroup]="custRegForm" (ngSubmit)="saveCustomer()">
+            <!-- <small><img [src]="imageSrc1" height="50"></small> -->
+
+            <!-- Basic Information Form -->
+            <div *ngIf="step==1">
+                <h6 class="text-center">Basic information</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputFirstName">First Name</label>
+                        <input type="text" class="form-control" name="customerfirstname" id="inputFirstName"
+                            placeholder="Fisr Name" formControlName="customerfirstname">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputMiddleName">Middle Name</label>
+                        <input type="text" class="form-control" id="inputMiddleName" name="customermiddlename"
+                            placeholder="Middle Name" formControlName="customermiddlename">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" name="customerlastname" id="inputLastName"
+                            placeholder="Last Name" formControlName="customerlastname">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputcustomerdob">Date Of Birth</label>
+                            <input type="date" class="form-control" name="customerdob" id="inputcustomerdob"
+                                placeholder="Date Of Birth" formControlName="customerdob">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="col-md-6">
+                            <label for="inputGender">Gender</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" name="customergender" value="Male" formControlName="customergender">
+                            Male <br>
+                            <input type="radio" name="customergender" value="Female" formControlName="customergender">
+                            Female<br>
+                            <input type="radio" name="customergender" value="Other" formControlName="customergender">
+                            Other
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputcustomermobilenumber">Phone Number</label>
+                            <input type="number" class="form-control" name="customermobilenumber"
+                                id="inputcustomermobilenumber" placeholder="Phone Number"
+                                formControlName="customermobilenumber">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputcustomeremail">Email Id</label>
+                        <input type="email" class="form-control" name="customeremail" id="inputcustomeremail"
+                            placeholder="Email Id" formControlName="customeremail">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputcustomeradditionalmobilenumber">Alternate Number</label>
+                            <input type="number" class="form-control" name="customeradditionalmobilenumber"
+                                id="inputcustomeradditionalmobilenumber" placeholder="Phone Number"
+                                formControlName="customeradditionalmobilenumber">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Address Information Form -->
+            <div *ngIf="step==2">
+                <div>
+                    <h6 class="text-center">Address Details</h6><br>
+                    <div class="form-row">
+                        <!-- Current Address Information Form -->
+                        <div class="form-group col-md-6" formGroupName="currentaddress">
+                            <h6 class="text-center">Current Address</h6><br>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputhousenumber">House Number</label>
+                                    <input type="number" class="form-control" name="housenumber" id="inputhousenumber"
+                                        placeholder="House Number" formControlName="housenumber">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputstreetname">Street Name</label>
+                                    <input type="text" class="form-control" name="streetname" id="inputstreetname"
+                                        placeholder="Street Name" formControlName="streetname">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputareaname">Area Name</label>
+                                    <input type="text" class="form-control" name="areaname" id="inputareaname"
+                                        placeholder="Area Name" formControlName="areaname">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputcitynamee">City Name</label>
+                                    <input type="text" class="form-control" name="cityname" id="inputcityname"
+                                        placeholder="City Name" formControlName="cityname">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="inputstate">State</label>
+                                        <input type="text" class="form-control" name="state" id="inputstate"
+                                            placeholder="State" formControlName="state">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputdistrict">District</label>
+                                    <input type="text" class="form-control" name="district" id="inputdistrict"
+                                        placeholder="District" formControlName="district">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputpincode">Pincode</label>
+                                    <input type="Number" class="form-control" name="pincode" id="inputpincodet"
+                                        placeholder="Pincode" formControlName="pincode">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="vl"></div>
+                        <!-- Permanent Address Information Form -->
+                        <div class="form-group col-md-5" formGroupName="permentaddress">
+                            <h6 class="text-center">Perment Address</h6>
+
+
+                            <!-- <input type="checkbox" id="gridCheck" (click)="sameAddress()">&nbsp;
+                            <label class="form-check-label" for="gridCheck">
+                                Same As Current Address
+                            </label> -->
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputhousenumber">House Number</label>
+                                    <input type="number" class="form-control" name="housenumber" id="inputhousenumber"
+                                        placeholder="House Number" formControlName="housenumber">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputstreetname">Street Name</label>
+                                    <input type="text" class="form-control" name="streetname" id="inputstreetname"
+                                        placeholder="Street Name" formControlName="streetname">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputareaname">Area Name</label>
+                                    <input type="text" class="form-control" name="areaname" id="inputareaname"
+                                        placeholder="Area Name" formControlName="areaname">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputcitynamee">City Name</label>
+                                    <input type="text" class="form-control" name="cityname" id="inputcityname"
+                                        placeholder="City Name" formControlName="cityname">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputstate">State</label>
+                                    <input type="text" class="form-control" name="state" id="inputstate"
+                                        placeholder="State" formControlName="state">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputdistrict">District</label>
+                                    <input type="text" class="form-control" name="district" id="inputdistrict"
+                                        placeholder="District" formControlName="district">
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputpincode">Pincode</label>
+                                    <input type="Number" class="form-control" name="pincode" id="inputpincodet"
+                                        placeholder="Pincode" formControlName="pincode">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Occupation Information Form -->
+            <div *ngIf="step==3" formGroupName="occupation">
+                <h6 class="text-center">Occupation Details</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputoccupationtype">Occupation Type</label>
+                        <input type="text" class="form-control" name="occupationtype" id="inputoccupationtype"
+                            placeholder="Occupation Type" formControlName="occupationtype">
+                    </div>
+
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputsalary">Salary</label>
+                            <input type="number" class="form-control" name="salary" id="inputsalary"
+                                placeholder="Salary" formControlName="salary">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputremainingWorkingPeriod">Remaining Working Period</label>
+                            <input type="number" class="form-control" name="remainingWorkingPeriod"
+                                id="inputremainingWorkingPeriod" placeholder="Remaining Working Period"
+                                formControlName="remainingWorkingPeriod">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputdesignation">Designation</label>
+                            <input type="text" class="form-control" name="designation" id="inputdesignation"
+                                placeholder="Designation" formControlName="designation">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+
+                        <div class="input-group-prepend">
+                            <span>Upload Salary Slip</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="salrySlip"
+                                formControlName="salrySlip" value="occupation.salrySlip"
+                                (change)="onSelectSalarySlip($event)">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- Documents Upload Form -->
+            <div *ngIf="step==4">
+                <h6 class="text-center">Upload Documents</h6><br>
+                <div class="form-row" formGroupName="documents">
+                    <div class="form-group col-md-6">
+                        <label for="inputqualification">Qualification</label>
+                        <input type="text" class="form-control" name="qualification" id="inputqualification"
+                            placeholder="Qualification" formControlName="qualification">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Adhaar Card</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputaddharcard" name="addharcard"
+                                formControlName="documents.addharcard" value="documents.addharcard"
+                                (change)="onSelectAdhaarCard($event)">
+                            <label class="custom-file-label" for="inputaddharcard">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Pancard</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputpancard" name="pancard"
+                                formControlName="documents.pancard" value="documents.pancard"
+                                (change)="onSelectPanCard($event)">
+                            <label class="custom-file-label" for="inputpancard">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Last Three Year ITR</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputlastthreeyearITR"
+                                name="lastthreeyearITR" formControlName="documents.lastthreeyearITR"
+                                value="documents.lastthreeyearITR" (change)="onSelectITR($event)">
+                            <label class="custom-file-label" for="inputlastthreeyearITR">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Photo</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputphoto" name="photo"
+                                formControlName="documents.photo" value="documents.photo"
+                                (change)="onSelectPhoto($event)">
+                            <label class="custom-file-label" for="inputphoto">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Cancel Bankcheque</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputbankcheque"
+                                name="documents.bankcheque" formControlName="bankcheque" value="documents.bankcheque"
+                                (change)="onSelectCheck($event)">
+                            <label class="custom-file-label" for="inputbankcheque">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span>Signature</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputsignature" name="signature"
+                                formControlName="documents.signature" value="documents.signature"
+                                (change)="onSelectSignature($event)">
+                            <label class="custom-file-label" for="inputsignature">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Loan Information -->
+            <div *ngIf="step==5">
+                <h6 class="text-center">Previos Loan information</h6><br>
+
+                <div formGroupName="previousloan">
+
+                    <div class="form-row">
+
+                        <div class="from-group col-md-8" formGroupName="previousbankloandetails">
+                            <h6 class="text-center">Bank Details</h6>
+
+                            <div class="from-group col-md-6">
+                                <label for="inputbranchnamet">Branch Name</label>
+                                <input type="text" class="form-control" name="branchname" id="inputbranchname"
+                                    placeholder="Branch Name" formControlName="branchname">
+                            </div>
+
+
+                            <div class="from-group col-md-6">
+                                <label for="inputbranchcode">Branch Code</label>
+                                <input type="number" class="form-control" name="branchcode" id="inputbranchcode"
+                                    placeholder="Branch Code" formControlName="branchcode">
+                            </div>
+
+                            <div class="from-group col-md-6">
+                                <label for="inputbranchtype">Branch Type</label>
+                                <input type="text" class="form-control" name="branchtype" id="inputbranchtype"
+                                    placeholder="Branch Type" formControlName="branchtype">
+                            </div>
+
+
+                            <div class="from-group col-md-6">
+                                <label for="inputifsccode">IFSC Code</label>
+                                <input type="text" class="form-control" name="ifsccode" id="inputifsccode"
+                                    placeholder="IFSC Code" formControlName="ifsccode">
+                            </div>
+                            <div class="from-group col-md-6">
+                                <label for="inputmicrcode">MICR Code</label>
+                                <input type="text" class="form-control" name="micrcode" id="inputmicrcode"
+                                    placeholder="MICR Code" formControlName="micrcode">
+                            </div>
+
+
+                            <div class="from-group col-md-6">
+                                <label for="inputconatctnumber">Conatct Number</label>
+                                <input type="number" class="form-control" name="conatctnumber" id="inputconatctnumber"
+                                    placeholder="Conatct Number" formControlName="conatctnumber">
+                            </div>
+
+                            <div class="from-group col-md-6">
+                                <label for="inputbankaddress">Bank Address</label>
+                                <input type="text" class="form-control" name="bankaddress" id="inputbankaddress"
+                                    placeholder="Bank Address" formControlName="bankaddress">
+                            </div>
+
+
+                            <div class="from-group col-md-6">
+                                <label for="inputemail">Bank Email</label>
+                                <input type="email" class="form-control" name="email" id="inputemail"
+                                    placeholder="Bank Email" formControlName="email">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr style="width:50%;text-align:left;margin-left:0">
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <label for="inputpreviousLoanamount">Loan Amount</label>
+                            <input type="number" class="form-control" name="previousLoanamount"
+                                id="inputpreviousLoanamount" placeholder="Loan Amount"
+                                formControlName="previousLoanamount">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputpreviousloantenure">Loan Tenure</label>
+                            <input type="number" class="form-control" id="inputpreviousloantenure"
+                                name="previousloantenure" placeholder="Loan tenure"
+                                formControlName="previousloantenure">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputpreviousloanpaidamount">Loan Paid Amount</label>
+                            <input type="text" class="form-control" name="previousloanpaidamount"
+                                id="inputpreviousloanpaidamount" placeholder="Loan Paid Amount"
+                                formControlName="previousloanpaidamount">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputpreviousloanremainingamount">Reamianing Amount to be paid</label>
+                            <input type="number" class="form-control" name="previousloanremainingamount"
+                                id="inputpreviousloanremainingamount" placeholder="Loan Amount"
+                                formControlName="previousloanremainingamount">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputpreviousloanstatus">Status</label>
+                            <input type="text" class="form-control" id="inputpreviousloanstatus"
+                                name="previousloanstatus" placeholder="Loan Status"
+                                formControlName="previousloanstatus">
+                        </div>
+
+                    </div>
+                </div>
+                <!-- * -->
+                <hr style="width:50%;text-align:left;margin-left:0">
+                <h6>Your Required Loan</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputcustomeramountpaidforcar">Down Payment</label>
+                        <input type="number" class="form-control" name="customeramountpaidforcar"
+                            id="inputcustomeramountpaidforcar" placeholder="Down Payment"
+                            formControlName="customeramountpaidforcar">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputcustomertotalloanrequired">Required Loan Amount</label>
+                        <input type="number" class="form-control" id="inputcustomertotalloanrequired"
+                            name="customertotalloanrequired" placeholder="Required Loan Amount"
+                            formControlName="customertotalloanrequired">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- mortgage Information Form -->
+            <div *ngIf="step==6" >
+                <h6 class="text-center">Mortgage Details</h6><br>
+                <div formGroupName="mortagagedetail">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputoccupationtype">Mortgage Property Value</label>
+                        <input type="number" class="form-control" name="mortgagepropertyvalue"
+                            id="inputmortgagepropertyvalue" placeholder="Mortgage Property Value"
+                            formControlName="mortgagepropertyvalue">
+                    </div>
+
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputsalary">Mortgage Property Type</label>
+                            <input type="text" class="form-control" name="mortgagepropertytype"
+                                id="inputmortgagepropertytype" placeholder="mortgagepropertytype"
+                                formControlName="mortgagepropertytype">
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group col-md-6">
+                        <div>
+                            <label for="inputmortgageloanonproperty">Mortgage Loan on Property</label>
+                            <input type="number" class="form-control" name="mortgageloanonproperty"
+                                id="inputmortgageloanonproperty" placeholder="mortgageloanonproperty"
+                                formControlName="mortgageloanonproperty">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+
+                        <div class="input-group-prepend">
+                            <span>Mortgage Property Proof</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputmortgagepropertyproof"
+                                name="mortgagepropertyproof" formControlName="mortagagedetail.mortgagepropertyproof"
+                                value="mortagagedetail.mortgagepropertyproof" (change)="onSelectPropProof($event)">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Cibil Information -->
+            <div *ngIf="step==7" formGroupName="cibil">
+                <h6 class="text-center">CIBIL information</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputpannumber">Pan Number</label>
+                        <input type="text" class="form-control" name="pannumber" id="inputpannumber"
+                            placeholder="Pan Number" formControlName="pannumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputcibilscore">CIBIL Score</label>
+                        <input type="number" class="form-control" id="inputcibilscore" name="cibilscore"
+                            placeholder="CIBIL Score" formControlName="cibilscore">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputcibilscoredatetime">CIBIL Score Date </label>
+                        <input type="text" class="form-control" name="cibilscoredatetime" id="inputcibilscoredatetime"
+                            placeholder="CIBIL Score Date" formControlName="cibilscoredatetime">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputstatus">Status</label>
+                        <input type="text" class="form-control" id="inputstatus" name="status" placeholder="Status"
+                            formControlName="status">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputremark">Remark </label>
+                        <input type="text" class="form-control" name="remark" id="inputremark" placeholder="Remark"
+                            formControlName="remark">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gaurantor Information -->
+
+            <div *ngIf="step==8" formGroupName="guarantordetail">
+                <h6 class="text-center">Gaurantor's information</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputguarantorname">Guarantor Name</label>
+                        <input type="text" class="form-control" name="guarantorname" id="inputguarantorname"
+                            placeholder="Guarantor Name" formControlName="guarantorname">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputprofession">Profession</label>
+                        <input type="text" class="form-control" id="inputprofession" name="profession"
+                            placeholder="Profession" formControlName="profession">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputcibilscore">Relation With Client</label>
+                        <input type="text" class="form-control" id="inputrelationwithclient" name="relationwithclient"
+                            placeholder="relationwithclient" formControlName="relationwithclient">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputmobileno">Gaurantor's Phone Number </label>
+                        <input type="number" class="form-control" name="mobileno" id="inputmobileno"
+                            placeholder="Gaurantor's Phone Number" formControlName="mobileno">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputaddress">Address</label>
+                        <input type="text" class="form-control" id="inputaddress" name="address" placeholder="Address"
+                            formControlName="address">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputpincode">Pincode</label>
+                        <input type="text" class="form-control" id="inputpincode" name="pincode" placeholder="Pincode"
+                            formControlName="pincode">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputcibilscoredatetime">City </label>
+                        <input type="text" class="form-control" name="city" id="inputcity"
+                            placeholder="Gaurantor's city" formControlName="city">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputdistrict">District</label>
+                        <input type="text" class="form-control" id="inputdistrict" name="district"
+                            placeholder="District" formControlName="district">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputstatus">State</label>
+                        <input type="text" class="form-control" id="inputstates" name="state" placeholder="State"
+                            formControlName="state">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputcibilscoredatetime">Country</label>
+                        <input type="text" class="form-control" name="country" id="inputcountry" placeholder="Country"
+                            formControlName="country">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputaadharno">Aadharno</label>
+                        <input type="number" class="form-control" id="inputaadharno" name="aadharno"
+                            placeholder="Aadharno" formControlName="aadharno">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputpanno">Pan Number</label>
+                        <input type="text" class="form-control" id="inputpanno" name="panno" placeholder="Pan Number"
+                            formControlName="panno">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Dealer's Account Details Information -->
+            <div *ngIf="step==9" formGroupName="dealeraccountdetails">
+                <h6 class="text-center">Dealer's Account Details</h6><br>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputaccounttype">Account Type</label>
+                        <input type="text" class="form-control" name="accounttype" id="inputaccounttype"
+                            placeholder="Account Type" formControlName="accounttype">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputcibilscoredatetime">Account Holder Name</label>
+                        <input type="text" class="form-control" name="accountholdername" id="inputaccountholdername"
+                            placeholder="Account Holder Name" formControlName="accountholdername">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputaccountnumber">Account Number</label>
+                        <input type="number" class="form-control" name="accountnumber" id="inputaccountnumber"
+                            placeholder="Account Number" formControlName="accountnumber">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4" *ngIf="step!=1">
+                    <a class="btn btn-info" (click)="previous()">Prvious</a>
+                </div>
+                <div class="form-group col-md-4" *ngIf="step!=9">
+                    <a class="btn btn-primary" (click)="next()">Next </a>
+                </div>
+                <div class="form-group col-md-4">
+                    <button type="submit" class="btn btn-danger" *ngIf="step==9">Submit</button>
+                </div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
